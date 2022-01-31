@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://script/Fight.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemy/Gloop.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.462745, 0.0352941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.47451, 0, 0, 1 )
+
+[node name="Fight" type="Node"]
+script = ExtResource( 1 )
+enemy = "Gloop"
+
+[node name="Gloop" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184, 208 )
+
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerGUI" type="Control" parent="GUI"]
+anchor_top = 0.533333
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttackButtons" type="GridContainer" parent="GUI/PlayerGUI"]
+anchor_left = 0.0434783
+anchor_top = 0.047619
+anchor_right = 0.956522
+anchor_bottom = 0.380952
+custom_constants/vseparation = 8
+custom_constants/hseparation = 8
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Attack1" type="Button" parent="GUI/PlayerGUI/AttackButtons"]
+margin_right = 164.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Spark"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Attack2" type="Button" parent="GUI/PlayerGUI/AttackButtons"]
+margin_left = 172.0
+margin_right = 336.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Attack3" type="Button" parent="GUI/PlayerGUI/AttackButtons"]
+margin_top = 60.0
+margin_right = 164.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Attack4" type="Button" parent="GUI/PlayerGUI/AttackButtons"]
+margin_left = 172.0
+margin_top = 60.0
+margin_right = 336.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="InfoBox" type="RichTextLabel" parent="GUI/PlayerGUI"]
+anchor_left = 0.0434783
+anchor_top = 0.428571
+anchor_right = 0.956522
+anchor_bottom = 0.857143
+text = "Gloop has appeared!"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="GUI/PlayerGUI"]
+anchor_top = 0.904762
+anchor_right = 0.347826
+anchor_bottom = 1.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
